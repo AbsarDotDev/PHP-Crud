@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Company Website</title>
+
+    </head>
+
+    <body>
+        <script>
+
+            const body = document.body;
+
+            // Create header
+            const header = document.createElement('header');
+            header.style.backgroundColor = '#3498db';
+            header.style.color = '#fff';
+            header.style.padding = '20px';
+            header.style.display = 'flex';
+            body.appendChild(header);
+
+            // Create logo and company name
+            const logoDiv = document.createElement('div');
+            logoDiv.classList.add('logo');
+            header.appendChild(logoDiv);
+
+            const logoImg = document.createElement('img');
+            logoImg.src = 'logo.png';
+            logoImg.alt = 'Company Logo';
+            logoImg.style.width = '50px';
+            logoImg.style.height = '50px';
+            logoImg.style.display = 'inline-block';
+            logoImg.style.verticalAlign = 'middle';
+            logoDiv.appendChild(logoImg);
+
+            const companyName = document.createElement('h1');
+          
+            // companyName.textContent = 'Company Name';
+            companyName.style.display = 'inline-block';
+            companyName.style.verticalAlign = 'middle';
+            companyName.style.marginLeft = '10px';
+            const companyNameNode=document.createTextNode("Company Name")
+            companyName.append(companyNameNode)
+            logoDiv.appendChild(companyName);
+
+            // Create navigation
+            const nav = document.createElement('nav');
+            header.appendChild(nav);
+
+            const navList = document.createElement('ul');
+            navList.style.listStyle = 'none';
+            navList.style.margin = '0';
+            navList.style.padding = '0';
+            nav.appendChild(navList);
+
+            const navItems = ['Home', 'About Us', 'Contact', 'Shortcode'];
+            navItems.forEach(item => {
+                const listItem = document.createElement('li');
+                const anchor = document.createElement('a');
+                anchor.href = '#';
+                anchor.textContent = item;
+                anchor.style.color = '#fff';
+                anchor.style.textDecoration = 'none';
+                listItem.appendChild(anchor);
+                navList.appendChild(listItem);
+            });
+
+            // Create search bar
+            const searchDiv = document.createElement('div');
+            searchDiv.classList.add('search-bar');
+            header.appendChild(searchDiv);
+
+            const searchInput = document.createElement('input');
+            searchInput.type = 'text';
+            searchInput.placeholder = 'Search...';
+            searchInput.style.padding = '5px';
+            searchInput.style.border = '1px solid #ccc';
+            searchDiv.appendChild(searchInput);
+
+            const searchButton = document.createElement('button');
+            searchButton.textContent = 'Search';
+            searchButton.style.padding = '5px 10px';
+            searchButton.style.backgroundColor = '#555';
+            searchButton.style.color = '#fff';
+            searchButton.style.border = 'none';
+            searchButton.style.cursor = 'pointer';
+            searchDiv.appendChild(searchButton);
+
+            // Create main content
+            const main = document.createElement('main');
+            main.style.padding = '20px';
+            body.appendChild(main);
+
+            // Create main picture with heading and paragraph
+            const mainPicDiv = document.createElement('div');
+            mainPicDiv.classList.add('main-pic');
+            main.appendChild(mainPicDiv);
+
+            const mainPic = document.createElement('img');
+            mainPic.src = 'main-pic.jpg';
+            mainPic.alt = 'Main Picture';
+            mainPic.style.maxWidth = '100%';
+            mainPic.style.height = 'auto';
+            mainPicDiv.appendChild(mainPic);
+
+            const mainHeading = document.createElement('h2');
+            mainHeading.textContent = 'Main Heading';
+            mainHeading.style.color = '#333';
+            mainHeading.style.marginTop = '20px';
+            mainPicDiv.appendChild(mainHeading);
+
+            const mainParagraph = document.createElement('p');
+            mainParagraph.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+            mainParagraph.style.color = '#666';
+            mainPicDiv.appendChild(mainParagraph);
+
+            // Create sections
+            const sectionDiv = document.createElement('div');
+            sectionDiv.classList.add('section');
+            main.appendChild(sectionDiv);
+
+            // Helper function to create each section div
+            function createSectionDiv(imgSrc, heading, paragraph) {
+                const div = document.createElement('div');
+                div.style.flexBasis = '48%';
+                div.style.padding = '10px';
+                div.style.marginBottom = '20px';
+                div.style.backgroundColor = '#f7f7f7';
+                div.style.border = '1px solid #ccc';
+            
+                sectionDiv.style.display = 'flex';
+                sectionDiv.style.flexWrap = 'wrap';
+                sectionDiv.style.justifyContent = 'space-between';
+                sectionDiv.appendChild(div);
+
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = 'Picture';
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+                div.appendChild(img);
+
+                const sectionHeading = document.createElement('h3');
+                sectionHeading.textContent = heading;
+                sectionHeading.style.color = '#333';
+                sectionHeading.style.marginTop = '10px';
+                div.appendChild(sectionHeading);
+
+                const sectionParagraph = document.createElement('p');
+                sectionParagraph.textContent = paragraph;
+                sectionParagraph.style.color = '#666';
+                div.appendChild(sectionParagraph);
+            }
+
+            // Create the four sections
+            const sectionData = [
+                {
+                    imgSrc: 'pic1.jpg',
+                    heading: 'Business Solutions',
+                    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                },
+                {
+                    imgSrc: 'pic2.jpg',
+                    heading: 'Market Research',
+                    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                },
+                {
+                    imgSrc: 'pic3.jpg',
+                    heading: 'Business Strategy',
+                    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                },
+                {
+                    imgSrc: 'pic4.jpg',
+                    heading: 'Speed Optimization',
+                    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                }
+            ];
+
+            sectionData.forEach(data => createSectionDiv(data.imgSrc, data.heading, data.paragraph));
+
+            // Create footer
+            const footer = document.createElement('footer');
+            footer.style.backgroundColor = '#333';
+            footer.style.color = '#fff';
+            footer.style.padding = '20px';
+            footer.style.textAlign = 'center';
+            body.appendChild(footer);
+            const p = document.createElement('p');
+            p.textContent = 'Footer';
+            footer.appendChild(p);
+
+          
+
+    </script>
+    </body>
+
+</html>
